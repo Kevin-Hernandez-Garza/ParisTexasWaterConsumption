@@ -84,9 +84,11 @@ Water consumption is measured in CCF (centum cubic feet)
 */
 
 #include <iostream>
+#include <string>
 using namespace std;
 
 // set the array size to 12 to hold each month
+// NO Global variables
 const int SIZE = 12;
 int months[SIZE];
 
@@ -95,3 +97,20 @@ int main()
 
     return 0;
 }
+
+/*
+==================
+    FUNCTIONS
+==================
+*/
+int monthlyConsumption() {}
+
+int printHeaders() {}
+
+int displayConsumption() {}
+
+int getLowestConsumption() {}
+
+int getHighestConsumption() {}
+
+int getAverageConsumption() {}

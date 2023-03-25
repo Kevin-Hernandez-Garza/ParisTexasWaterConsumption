@@ -60,12 +60,6 @@ Water consumption is measured in CCF (centum cubic feet)
 #include <string>
 using namespace std;
 
-/*
-==================
-    FUNCTIONS
-==================
-*/
-
 // dont forget the returns for all functions
 int monthlyConsumption()
 {
@@ -84,8 +78,16 @@ int monthlyConsumption()
     for (count = 0; count < NUM_MONTHS; count++)
     {
         cout << "Enter the CCF consumed for " << months[count] << ": ";
+        do
+        {
+            cin >> consumption[count];
 
-        cin >> consumption[count];
+            if (consumption[count] < 0)
+            {
+                cout << "Error: Consumption cannot be a negative integer!" << endl;
+                cout << "Enter a non-negative integer for " << months[count] << ": ";
+            }
+        } while (consumption[count] < 0);
     }
 
     return 0;
@@ -111,19 +113,32 @@ int printHeaders()
         }
     } while (reportYear < 2005 || reportYear > 2020);
 
-    // move this output to the main function
     cout << "The report year is: " << reportYear << endl;
 
-    // INPUT VALIDATION: THE YEAR SHOULD BE VALIDATED TO BE BETWEEN 2005 AND 2020
     return 0;
 }
 
-/*int displayConsumption()
+int displayConsumption()
 {
     // FUNCTION #3: DISPLAY THE CONSUMPTION: display the consumption for the year for each
     // month with the appropriate labels.
+    const int NUM_MONTHS = 11;
+
+    string months[NUM_MONTHS] = {"January", "February", "March", "April", "June", "July", "August", "September", "October", "November", "December"};
+
+    int consumption[NUM_MONTHS]; // consumption array
+
+    int count; // loop counter
+
+    for (count = 0; count < NUM_MONTHS; count++)
+    {
+        cout << months[count] << "'s consumption is " << consumption[count] << " CCF" << endl;
+    }
+
+    return 0;
 }
 
+/*
 int getLowestConsumption()
 {
     // FUNCTION #4: GET THE LOWEST CONSUMPTION: Using the data from the consumption array, determine the month with the lowest consumption, print the month name and the amount of the consumption for that month.
@@ -150,12 +165,10 @@ int main()
     //- create an array to store the twelve months of consumption
     //- call the following functions, passing the array to all but the print headers functions.
     // set the array size to 12 to hold each month
-    // NO Global variables
-    // const int SIZE = 12;
-    // int months[SIZE];
 
     monthlyConsumption();
-    printHeaders();
+    // printHeaders();
+    // displayConsumption();
 
     return 0;
 }

@@ -98,9 +98,20 @@ int printHeaders()
     // and print the headers.
     int reportYear;
 
-    cout << "Enter year of the report: ";
-    cin >> reportYear;
+    // asking user for report year with input validation
+    do
+    {
+        cout << "Enter year of the report: ";
+        cin >> reportYear;
 
+        if (reportYear < 2005 || reportYear > 2020)
+        {
+            cout << "Error: Incorrect year! " << endl;
+            cout << "Please enter a year between 2005 & 2020." << endl;
+        }
+    } while (reportYear < 2005 || reportYear > 2020);
+
+    // move this output to the main function
     cout << "The report year is: " << reportYear << endl;
 
     // INPUT VALIDATION: THE YEAR SHOULD BE VALIDATED TO BE BETWEEN 2005 AND 2020

@@ -10,17 +10,11 @@
 //  ******************************************************************
 
 /*
-==================
-USER STORY
-==================
  - The city of Paris, Texas tracks how much water is consumed by its citizens on a monthly basis.
  The city manager would like statistics about the consumption. She would like to know the months
  with the highest and lowest consumption, the yearly average, and the yearly total.
-**NOTE**
-Water consumption is measured in CCF (centum cubic feet)
 
     INPUT VALIDATION: DO NOT ACCEPT NEGATIVE NUMBERS
-    - Your screen dialog might look similar to this: (user input is shown)
 
     Enter water consumption in CCF for January: 500000
     Enter water consumption in CCF for February: 400000
@@ -36,7 +30,7 @@ Water consumption is measured in CCF (centum cubic feet)
     ----------------------------------
     January         500000
     February        250000
-    etc.....
+    etc..
 
 
     The lowest consumption was in March with 100000 CCF
@@ -60,7 +54,24 @@ Water consumption is measured in CCF (centum cubic feet)
 #include <string>
 using namespace std;
 
-// dont forget the returns for all functions
+int main()
+{
+    //- the MAIN function should:
+    //- create an array to store the twelve months of consumption
+    //- call the following functions, passing the array to all but the print headers functions.
+    // set the array size to 12 to hold each month
+    const int NUM_MONTHS = 12;
+    // months array
+    string months[NUM_MONTHS] = {"January", "February", "March", "April", "June", "July", "August", "September", "October", "November", "December"};
+    int consumption[NUM_MONTHS]; // consumption array
+
+    monthlyConsumption();
+    printHeaders();
+    displayConsumption();
+
+    return 0;
+}
+
 int monthlyConsumption()
 {
     // FUNCTION #1: The function should use a loop to ask the user for the amount consumed for 12 months, using the appropriate month name and store the data in the consumption array.
@@ -122,6 +133,7 @@ int displayConsumption()
 {
     // FUNCTION #3: DISPLAY THE CONSUMPTION: display the consumption for the year for each
     // month with the appropriate labels.
+    // FIX THIS BY NOT RETYPING THE ARRAYS AND HAVE IT REFERENCE IT FROM THE OTHER FUNCTIONS
     const int NUM_MONTHS = 11;
 
     string months[NUM_MONTHS] = {"January", "February", "March", "April", "June", "July", "August", "September", "October", "November", "December"};
@@ -157,18 +169,3 @@ int getAverageConsumption()
     int sum = 0; // holds total
     int i = 0;   // array index
 }*/
-
-// MAIN FUNCTION
-int main()
-{
-    //- the MAIN function should:
-    //- create an array to store the twelve months of consumption
-    //- call the following functions, passing the array to all but the print headers functions.
-    // set the array size to 12 to hold each month
-
-    monthlyConsumption();
-    // printHeaders();
-    // displayConsumption();
-
-    return 0;
-}

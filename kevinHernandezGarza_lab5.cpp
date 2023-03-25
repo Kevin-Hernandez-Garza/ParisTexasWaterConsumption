@@ -69,9 +69,26 @@ using namespace std;
 // dont forget the returns for all functions
 int monthlyConsumption()
 {
-    // FUNCTION #1: The function should use a loop to ask the user for the amount
-    // consumed for 12 months, using the appropriate month name and store the data in the
-    // consumption array.
+    // FUNCTION #1: The function should use a loop to ask the user for the amount consumed for 12 months, using the appropriate month name and store the data in the consumption array.
+
+    // constant variable created
+    const int NUM_MONTHS = 12;
+
+    // months array
+    string months[NUM_MONTHS] = {"January", "February", "March", "April", "June", "July", "August", "September", "October", "November", "December"};
+
+    int consumption[NUM_MONTHS]; // consumption array
+
+    int count; // loop counter
+
+    for (count = 0; count < NUM_MONTHS; count++)
+    {
+        cout << "Enter the CCF consumed for " << months[count] << ": ";
+
+        cin >> consumption[count];
+    }
+
+    return 0;
 }
 
 int printHeaders()
@@ -104,6 +121,8 @@ int getAverageConsumption()
 {
     // FUNCTION #6: GET THE TOTAL AVERAGE CONSUMPTION: Using the data from the consumption array
     // calculate the total and average of all months for the year and print them.
+    int sum = 0; // holds total
+    int i = 0;   // array index
 }
 
 // MAIN FUNCTION
@@ -114,8 +133,10 @@ int main()
     //- call the following functions, passing the array to all but the print headers functions.
     // set the array size to 12 to hold each month
     // NO Global variables
-    const int SIZE = 12;
-    int months[SIZE];
+    // const int SIZE = 12;
+    // int months[SIZE];
+
+    monthlyConsumption();
 
     return 0;
 }

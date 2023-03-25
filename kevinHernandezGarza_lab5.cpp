@@ -19,39 +19,12 @@ USER STORY
 **NOTE**
 Water consumption is measured in CCF (centum cubic feet)
 
-- the MAIN function should:
-    - create an array to store the twelve months of consumption
-    - call the following functions, passing the array to all but the print headers functions.
-
-    FUNCTION #1: The function should use a loop to ask the user for the amount
-    consumed for 12 months, using the appropriate month name and store the data in the
-    consumption array.
-
     INPUT VALIDATION: DO NOT ACCEPT NEGATIVE NUMBERS
     - Your screen dialog might look similar to this: (user input is shown)
 
     Enter water consumption in CCF for January: 500000
     Enter water consumption in CCF for February: 400000
-    etc.....
-
-
-    FUNCTION #2: Print the headers
-    - Which should ask for the year of the report to be displayed in the header
-    and print the headers.
-
-    INPUT VALIDATION: THE YEAR SHOULD BE VALIDATED TO BE BETWEEN 2005 AND 2020
-
-    FUNCTION #3: DISPLAY THE CONSUMPTION: display the consumption for the year for each
-    month with the appropriate labels.
-
-    FUNCTION #4: GET THE LOWEST CONSUMPTION: Using the data from the consumption array, determine the month with the lowest consumption, print the month name and the amount of the consumption for that month.
-
-    FUNCTION #5: GET THE HIGHEST CONSUMPTION: Using the data from the consumption array, determine the month the highest
-    consumption, print the month name and the amount of the consumption for that month.
-
-    FUNCTION #6: GET THE TOTAL AVERAGE CONSUMPTION: Using the data from the consumption array
-    calculate the total and average of all months for the year and print them.
-
+    etc...
 
     ==========================
     SAMPLE OUTPUT
@@ -87,30 +60,62 @@ Water consumption is measured in CCF (centum cubic feet)
 #include <string>
 using namespace std;
 
-// set the array size to 12 to hold each month
-// NO Global variables
-const int SIZE = 12;
-int months[SIZE];
-
-int main()
-{
-
-    return 0;
-}
-
 /*
 ==================
     FUNCTIONS
 ==================
 */
-int monthlyConsumption() {}
 
-int printHeaders() {}
+// dont forget the returns for all functions
+int monthlyConsumption()
+{
+    // FUNCTION #1: The function should use a loop to ask the user for the amount
+    // consumed for 12 months, using the appropriate month name and store the data in the
+    // consumption array.
+}
 
-int displayConsumption() {}
+int printHeaders()
+{
+    // FUNCTION #2: Print the headers
+    //- Which should ask for the year of the report to be displayed in the header
+    // and print the headers.
 
-int getLowestConsumption() {}
+    // INPUT VALIDATION: THE YEAR SHOULD BE VALIDATED TO BE BETWEEN 2005 AND 2020
+}
 
-int getHighestConsumption() {}
+int displayConsumption()
+{
+    // FUNCTION #3: DISPLAY THE CONSUMPTION: display the consumption for the year for each
+    // month with the appropriate labels.
+}
 
-int getAverageConsumption() {}
+int getLowestConsumption()
+{
+    // FUNCTION #4: GET THE LOWEST CONSUMPTION: Using the data from the consumption array, determine the month with the lowest consumption, print the month name and the amount of the consumption for that month.
+}
+
+int getHighestConsumption()
+{
+    // FUNCTION #5: GET THE HIGHEST CONSUMPTION: Using the data from the consumption array, determine the month the highest
+    // consumption, print the month name and the amount of the consumption for that month.
+}
+
+int getAverageConsumption()
+{
+    // FUNCTION #6: GET THE TOTAL AVERAGE CONSUMPTION: Using the data from the consumption array
+    // calculate the total and average of all months for the year and print them.
+}
+
+// MAIN FUNCTION
+int main()
+{
+    //- the MAIN function should:
+    //- create an array to store the twelve months of consumption
+    //- call the following functions, passing the array to all but the print headers functions.
+    // set the array size to 12 to hold each month
+    // NO Global variables
+    const int SIZE = 12;
+    int months[SIZE];
+
+    return 0;
+}

@@ -54,6 +54,8 @@
 #include <string>
 using namespace std;
 
+// declare function prototypes
+
 int main()
 {
     //- the MAIN function should:

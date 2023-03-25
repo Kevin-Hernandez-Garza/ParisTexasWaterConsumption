@@ -72,7 +72,7 @@ int monthlyConsumption()
     // FUNCTION #1: The function should use a loop to ask the user for the amount consumed for 12 months, using the appropriate month name and store the data in the consumption array.
 
     // constant variable created
-    const int NUM_MONTHS = 12;
+    const int NUM_MONTHS = 11;
 
     // months array
     string months[NUM_MONTHS] = {"January", "February", "March", "April", "June", "July", "August", "September", "October", "November", "December"};
@@ -96,11 +96,18 @@ int printHeaders()
     // FUNCTION #2: Print the headers
     //- Which should ask for the year of the report to be displayed in the header
     // and print the headers.
+    int reportYear;
+
+    cout << "Enter year of the report: ";
+    cin >> reportYear;
+
+    cout << "The report year is: " << reportYear << endl;
 
     // INPUT VALIDATION: THE YEAR SHOULD BE VALIDATED TO BE BETWEEN 2005 AND 2020
+    return 0;
 }
 
-int displayConsumption()
+/*int displayConsumption()
 {
     // FUNCTION #3: DISPLAY THE CONSUMPTION: display the consumption for the year for each
     // month with the appropriate labels.
@@ -123,7 +130,7 @@ int getAverageConsumption()
     // calculate the total and average of all months for the year and print them.
     int sum = 0; // holds total
     int i = 0;   // array index
-}
+}*/
 
 // MAIN FUNCTION
 int main()
@@ -137,6 +144,7 @@ int main()
     // int months[SIZE];
 
     monthlyConsumption();
+    printHeaders();
 
     return 0;
 }

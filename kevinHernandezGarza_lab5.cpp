@@ -55,6 +55,8 @@
 using namespace std;
 
 // declare function prototypes
+// pass the array pointers
+void monthlyConsumption(int *consumption, string *months, int SIZE);
 
 int main()
 {
@@ -62,35 +64,25 @@ int main()
     //- create an array to store the twelve months of consumption
     //- call the following functions, passing the array to all but the print headers functions.
     // set the array size to 12 to hold each month
-    const int NUM_MONTHS = 12;
-    // months array
-    string months[NUM_MONTHS] = {"January", "February", "March", "April", "June", "July", "August", "September", "October", "November", "December"};
-    int consumption[NUM_MONTHS]; // consumption array
+    const int SIZE = 11;
+    int consumption[SIZE]; // consumption array
+    string months[SIZE] = {"January", "February", "March", "April", "June", "July", "August", "September", "October", "November", "December"};
 
-    monthlyConsumption();
-    printHeaders();
-    displayConsumption();
+    // learn how to pass arrays into a function
+    monthlyConsumption(consumption, months, SIZE);
+
+    // printHeaders();
+    // displayConsumption();
 
     return 0;
 }
 
-int monthlyConsumption()
+void monthlyConsumption(int *consumption, string *months, int SIZE)
 {
-    // FUNCTION #1: The function should use a loop to ask the user for the amount consumed for 12 months, using the appropriate month name and store the data in the consumption array.
-
-    // constant variable created
-    const int NUM_MONTHS = 11;
-
-    // months array
-    string months[NUM_MONTHS] = {"January", "February", "March", "April", "June", "July", "August", "September", "October", "November", "December"};
-
-    int consumption[NUM_MONTHS]; // consumption array
-
-    int count; // loop counter
-
-    for (count = 0; count < NUM_MONTHS; count++)
+    // FUNCTION #1: The function should use a loop to ask the user for the amount consumed for 12 months, using the appropriate month name and store the data in the consumption array
+    for (int count = 0; count < SIZE; count++)
     {
-        cout << "Enter the CCF consumed for " << months[count] << ": ";
+        cout << "Enter the CCF consumption for " << *(months + count) << ": ";
         do
         {
             cin >> consumption[count];
@@ -98,12 +90,10 @@ int monthlyConsumption()
             if (consumption[count] < 0)
             {
                 cout << "Error: Consumption cannot be a negative integer!" << endl;
-                cout << "Enter a non-negative integer for " << months[count] << ": ";
+                cout << "Enter a non-negative integer for " << consumption[count] << ": ";
             }
         } while (consumption[count] < 0);
     }
-
-    return 0;
 }
 
 int printHeaders()
@@ -135,16 +125,7 @@ int displayConsumption()
 {
     // FUNCTION #3: DISPLAY THE CONSUMPTION: display the consumption for the year for each
     // month with the appropriate labels.
-    // FIX THIS BY NOT RETYPING THE ARRAYS AND HAVE IT REFERENCE IT FROM THE OTHER FUNCTIONS
-    const int NUM_MONTHS = 11;
-
-    string months[NUM_MONTHS] = {"January", "February", "March", "April", "June", "July", "August", "September", "October", "November", "December"};
-
-    int consumption[NUM_MONTHS]; // consumption array
-
-    int count; // loop counter
-
-    for (count = 0; count < NUM_MONTHS; count++)
+    for (int count = 0; count < SIZE; count++)
     {
         cout << months[count] << "'s consumption is " << consumption[count] << " CCF" << endl;
     }

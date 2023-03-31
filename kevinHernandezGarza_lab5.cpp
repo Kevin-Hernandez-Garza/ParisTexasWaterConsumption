@@ -11,22 +11,6 @@
 // months, and yearly average and total measured in CCF(centum cubic feet).
 //  ******************************************************************
 
-/*
-    The lowest consumption was in March with 100000 CCF
-    The highest consumption was in July with 200000 CCF
-    The total consumption for the year was: 20000000 CCF
-
-    MODULARITY: Your program must be a modular program. Your main function should not contain
-    any loops. It should call all of the functions described above, calling a total of 6 functions.
-
-    ADDITIONAL REQUIREMENTS:
-        1. Do not use global in any assignment. A global variable is a variable that is declared outside any function. It is okay to use global constants.
-
-        2. When passing the array to a function that does not modify it, use the const keyword
-        to prevent any modification to the array.
-
-*/
-
 #include <iostream>
 #include <string>
 #include <iomanip>
@@ -36,6 +20,7 @@ void monthlyConsumption(int *consumption, string *months, int SIZE);
 void printHeaders();
 void displayConsumption(int *consumption, string *months, int SIZE);
 void getAverageConsumption(int *consumption, int SIZE);
+void getLowestConsumption(int consumption[], int SIZE);
 
 int main()
 {
@@ -47,6 +32,7 @@ int main()
     printHeaders();
     displayConsumption(consumption, months, SIZE);
     getAverageConsumption(consumption, SIZE);
+    getLowestConsumption(consumption, SIZE);
 
     return 0;
 }
@@ -77,8 +63,7 @@ void displayConsumption(int *consumption, string *months, int SIZE)
     {
         cout << setw(38) << left << *(months + count) << right << *(consumption + count) << endl;
     }
-    cout << endl;
-    cout << endl;
+    cout << "\n\n";
 }
 
 void printHeaders()
@@ -97,21 +82,46 @@ void printHeaders()
         }
     } while (reportYear < 2005 || reportYear > 2020);
 
-    cout << endl;
-    cout << endl;
+    cout << "\n\n";
     cout << reportYear << " Consumption report for Paris, Texas " << endl;
     cout << endl;
     cout << setw(35) << left << "Month" << right << "Consumption" << endl;
     cout << "==============================================" << endl;
-    cout << endl;
+    cout << "\n";
+}
+
+void getLowestConsumption(int consumption[], int SIZE)
+{
+    for (int i = 0; i < (SIZE - 1); i++)
+    {
+        int min = i;
+        for (int j = i + 1; j < SIZE; j++)
+        {
+            if (consumption[j] < consumption[min])
+            {
+                min = j;
+            }
+        }
+
+        if (min != i)
+        {
+            int temp = consumption[i];
+            consumption[i] = consumption[min];
+            consumption[min] = temp;
+        }
+    }
+
+    cout << "The lowest consumption value is: " << consumption[0] << " CCF" << endl;
+}
+
+void swap(int &a, int &b)
+{
+    int temp = a;
+    a = b;
+    b = temp;
 }
 
 /*
-int getLowestConsumption()
-{
-    // FUNCTION #4: GET THE LOWEST CONSUMPTION: Using the data from the consumption array, determine the month with the lowest consumption, print the month name and the amount of the consumption for that month.
-}
-
 int getHighestConsumption()
 {
     // FUNCTION #5: GET THE HIGHEST CONSUMPTION: Using the data from the consumption array, determine the month the highest
@@ -120,7 +130,6 @@ int getHighestConsumption()
 
 void getAverageConsumption(int *consumption, int SIZE)
 {
-    // FUNCTION #6: GET THE TOTAL AVERAGE CONSUMPTION: Using the data from the consumption array
     // calculate the total and average of all months for the year and print them.
     int sum = 0; // holds total
     double average = 0;
@@ -132,8 +141,7 @@ void getAverageConsumption(int *consumption, int SIZE)
 
     average = sum / 12;
 
-    cout << endl;
-    cout << "The total consumption for the year was: " << sum << " CCF" << endl;
-    cout << "The average consumption for the year: " << average << " CCF" << endl;
-    cout << endl;
+    cout << "\nThe total consumption for the year was: " << sum << " CCF" << endl;
+    cout << "The average consumption for the year: " << average << " CCF\n"
+         << endl;
 }

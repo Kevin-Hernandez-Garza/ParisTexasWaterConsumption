@@ -21,6 +21,7 @@ void printHeaders();
 void displayConsumption(int *consumption, string *months, int SIZE);
 void getAverageConsumption(int *consumption, int SIZE);
 void getLowestConsumption(int consumption[], int SIZE);
+void getHighestConsumption(int consumption[], int SIZE);
 
 int main()
 {
@@ -33,6 +34,7 @@ int main()
     displayConsumption(consumption, months, SIZE);
     getAverageConsumption(consumption, SIZE);
     getLowestConsumption(consumption, SIZE);
+    getHighestConsumption(consumption, SIZE);
 
     return 0;
 }
@@ -114,19 +116,29 @@ void getLowestConsumption(int consumption[], int SIZE)
     cout << "The lowest consumption value is: " << consumption[0] << " CCF" << endl;
 }
 
-void swap(int &a, int &b)
+void getHighestConsumption(int consumption[], int SIZE)
 {
-    int temp = a;
-    a = b;
-    b = temp;
-}
+    for (int i = 0; i < (SIZE - 1); i++)
+    {
+        int min = i;
+        for (int j = i + 1; j < SIZE; j++)
+        {
+            if (consumption[j] < consumption[min])
+            {
+                min = j;
+            }
+        }
 
-/*
-int getHighestConsumption()
-{
-    // FUNCTION #5: GET THE HIGHEST CONSUMPTION: Using the data from the consumption array, determine the month the highest
-    // consumption, print the month name and the amount of the consumption for that month.
-}*/
+        if (min != i)
+        {
+            int temp = consumption[i];
+            consumption[i] = consumption[min];
+            consumption[min] = temp;
+        }
+    }
+
+    cout << "The highest consumption value is: " << consumption[SIZE - 1] << " CCF" << endl;
+}
 
 void getAverageConsumption(int *consumption, int SIZE)
 {

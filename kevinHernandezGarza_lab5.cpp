@@ -35,7 +35,7 @@ using namespace std;
 void monthlyConsumption(int *consumption, string *months, int SIZE);
 void printHeaders();
 void displayConsumption(int *consumption, string *months, int SIZE);
-double getAverageConsumption(int *consumption, int SIZE);
+void getAverageConsumption(int *consumption, int SIZE);
 
 int main()
 {
@@ -46,7 +46,7 @@ int main()
     monthlyConsumption(consumption, months, SIZE);
     printHeaders();
     displayConsumption(consumption, months, SIZE);
-    cout << setprecision(2) << fixed << showpoint << "The average consumption for the year: " << getAverageConsumption(consumption, SIZE) << " CCF" << endl;
+    getAverageConsumption(consumption, SIZE);
 
     return 0;
 }
@@ -75,7 +75,7 @@ void displayConsumption(int *consumption, string *months, int SIZE)
     // the console for the user.
     for (int count = 0; count < SIZE; count++)
     {
-        cout << setw(35) << left << *(months + count) << right << *(consumption + count) << endl;
+        cout << setw(38) << left << *(months + count) << right << *(consumption + count) << endl;
     }
     cout << endl;
     cout << endl;
@@ -96,9 +96,10 @@ void printHeaders()
             cout << "Please enter a year between 2005 & 2020." << endl;
         }
     } while (reportYear < 2005 || reportYear > 2020);
+
+    cout << endl;
     cout << endl;
     cout << reportYear << " Consumption report for Paris, Texas " << endl;
-    cout << endl;
     cout << endl;
     cout << setw(35) << left << "Month" << right << "Consumption" << endl;
     cout << "==============================================" << endl;
@@ -117,7 +118,7 @@ int getHighestConsumption()
     // consumption, print the month name and the amount of the consumption for that month.
 }*/
 
-double getAverageConsumption(int *consumption, int SIZE)
+void getAverageConsumption(int *consumption, int SIZE)
 {
     // FUNCTION #6: GET THE TOTAL AVERAGE CONSUMPTION: Using the data from the consumption array
     // calculate the total and average of all months for the year and print them.
@@ -131,5 +132,8 @@ double getAverageConsumption(int *consumption, int SIZE)
 
     average = sum / 12;
 
-    return average;
+    cout << endl;
+    cout << "The total consumption for the year was: " << sum << " CCF" << endl;
+    cout << "The average consumption for the year: " << average << " CCF" << endl;
+    cout << endl;
 }

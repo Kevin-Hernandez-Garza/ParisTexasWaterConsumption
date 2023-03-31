@@ -57,6 +57,7 @@ using namespace std;
 // declare function prototypes
 // pass the array pointers
 void monthlyConsumption(int *consumption, string *months, int SIZE);
+void displayConsumption(int *consumption, string *months, int SIZE);
 
 int main()
 {
@@ -70,9 +71,8 @@ int main()
 
     // learn how to pass arrays into a function
     monthlyConsumption(consumption, months, SIZE);
-
+    displayConsumption(consumption, months, SIZE);
     // printHeaders();
-    // displayConsumption();
 
     return 0;
 }
@@ -121,16 +121,14 @@ int printHeaders()
     return 0;
 }
 
-int displayConsumption()
+void displayConsumption(int *consumption, string *months, int SIZE)
 {
     // FUNCTION #3: DISPLAY THE CONSUMPTION: display the consumption for the year for each
     // month with the appropriate labels.
     for (int count = 0; count < SIZE; count++)
     {
-        cout << months[count] << "'s consumption is " << consumption[count] << " CCF" << endl;
+        cout << "The consumption for " << *(months + count) << " is " << *(consumption + count) << endl;
     }
-
-    return 0;
 }
 
 /*

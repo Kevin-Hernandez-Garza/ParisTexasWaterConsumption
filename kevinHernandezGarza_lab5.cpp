@@ -6,24 +6,15 @@
 // Due Date: 3/25/23
 // Instructor: Dr.Haytham Mohamed
 //
-// This program tracks information on water consumption for the city of Paris, Texas on a monthly basis. It specifically calculates the highest and lowest months, and yearly average and total measured in CCF(centum cubic feet).
+// This program tracks information on water consumption for the city of Paris,
+// Texas on a monthly basis. It specifically calculates the highest and lowest
+// months, and yearly average and total measured in CCF(centum cubic feet).
 //  ******************************************************************
 
 /*
-    2016 Consumption Report for Paris, Texas
-
-    Month           Consumption in CCF
-    ----------------------------------
-    January         500000
-    February        250000
-
-
-
     The lowest consumption was in March with 100000 CCF
     The highest consumption was in July with 200000 CCF
     The total consumption for the year was: 20000000 CCF
-    The average consumption for the year was: 500000 CCF
-
 
     MODULARITY: Your program must be a modular program. Your main function should not contain
     any loops. It should call all of the functions described above, calling a total of 6 functions.
@@ -41,8 +32,6 @@
 #include <iomanip>
 using namespace std;
 
-// declare function prototypes
-// pass the array pointers
 void monthlyConsumption(int *consumption, string *months, int SIZE);
 void printHeaders();
 void displayConsumption(int *consumption, string *months, int SIZE);
@@ -57,7 +46,7 @@ int main()
     monthlyConsumption(consumption, months, SIZE);
     printHeaders();
     displayConsumption(consumption, months, SIZE);
-    cout << setprecision(2) << fixed << showpoint << "The yearly average is: " << getAverageConsumption(consumption, SIZE) << " CCF" << endl;
+    cout << setprecision(2) << fixed << showpoint << "The average consumption for the year: " << getAverageConsumption(consumption, SIZE) << " CCF" << endl;
 
     return 0;
 }
@@ -82,16 +71,19 @@ void monthlyConsumption(int *consumption, string *months, int SIZE)
 
 void displayConsumption(int *consumption, string *months, int SIZE)
 {
+    // iterating over the months and consumption array to display them on
+    // the console for the user.
     for (int count = 0; count < SIZE; count++)
     {
-        cout << "The consumption for " << *(months + count) << " is " << *(consumption + count) << endl;
+        cout << setw(35) << left << *(months + count) << right << *(consumption + count) << endl;
     }
+    cout << endl;
+    cout << endl;
 }
 
 void printHeaders()
 {
     int reportYear;
-
     // asking user for report year with input validation
     do
     {
@@ -108,9 +100,8 @@ void printHeaders()
     cout << reportYear << " Consumption report for Paris, Texas " << endl;
     cout << endl;
     cout << endl;
-    cout << "Month       "
-         << "Consumption in CCF  " << endl;
-    cout << "=========================================" << endl;
+    cout << setw(35) << left << "Month" << right << "Consumption" << endl;
+    cout << "==============================================" << endl;
     cout << endl;
 }
 
